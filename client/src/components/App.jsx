@@ -21,7 +21,7 @@ const App = () => {
     <div>
       <Search setMainResult={setMainResult} />
       {mainResult && <MainResultDetails mainResult={mainResult} /> }
-      {results.length > 0 && <RecentResults results={results} setMainResult={setMainResult} fetchResults={fetchResults} />}
+      <RecentResults results={results} setMainResult={setMainResult} fetchResults={fetchResults} />
     </div>
   );
 };

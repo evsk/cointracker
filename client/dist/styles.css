@@ -5,6 +5,18 @@ body {
   background: lightgray;
 }
 
+h4 {
+  font-size: 16px;
+  margin-block-start: 8px;
+  margin-block-end: 8px;
+}
+
+h5 {
+  font-size: 14px;
+  margin-block-start: 8px;
+  margin-block-end: 8px;
+}
+
 #app {
   display: flex;
   justify-content: flex-start;
@@ -13,11 +25,6 @@ body {
 .search {
   flex-direction: row;
   margin: 25px;
-}
-
-h4, h5 {
-  margin-block-start: 4px;
-  margin-block-end: 4px;
 }
 
 .header {
@@ -50,6 +57,7 @@ h4, h5 {
   margin: 5px;
   justify-content: flex-start;
   align-items: center;
+  
 }
 
 .overview {
@@ -60,6 +68,8 @@ h4, h5 {
   flex-direction: row;
   justify-content: flex-start;
   width: 400px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .line-item-details > div {
@@ -91,15 +101,14 @@ h4, h5 {
   width: 1200px;
 }
 
-
-
-button.transaction {
+.transaction {
   display: flex;
   align-self: flex-start;
   border: none;
   background: transparent;
   font-size: 14px;
-  width: 600px;
+  width: 595px;
+  margin-right: 5px;
   cursor: pointer;
 }
 

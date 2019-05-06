@@ -35,7 +35,7 @@ const MainResultDetails = ({ mainResult }) => (
     <div className="transaction-details">
       <h5>Inputs</h5>
       {mainResult.inputs.map(transaction => (
-        <div key={transaction.sequence} className="line-item">
+        <div key={transaction.prev_out.tx_index} className="line-item">
           <div className="line-item-details">
             <div>
               Address:
@@ -62,7 +62,7 @@ const MainResultDetails = ({ mainResult }) => (
               Address:
             </div>
             <div>
-              {transaction.addr}
+              {transaction.addr ? transaction.addr : 'No output address'}
             </div>
           </div>
           <div className="line-item-details">
