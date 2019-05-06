@@ -1,17 +1,14 @@
 import React, { Fragment, useState, useEffect } from 'react';
 
-const Search = ({ setSearchResult }) => {
-  const [txId, setTxId] = useState(0);
+const Search = ({ setMainResult }) => {
   const [query, setQuery] = useState(null);
 
   const [search, setSearch] = useState(null);
   useEffect(() => {
     if (search) {
       fetch(`/search/${search}`)
-        .then(result => result.json())
-        .then((result) => {
-          setSearchResult(result);
-        })
+        .then(response => response.json())
+        .then(response => setMainResult(response))
         .catch((err) => {
           console.log(err);
           alert('Invaild Transaction ID');
@@ -24,7 +21,7 @@ const Search = ({ setSearchResult }) => {
       <span>
         Search: 
       </span>
-      <input type="text" value={query} onChange={e => setQuery(e.target.value)} />
+      <input type="textarea" value={query} onChange={e => setQuery(e.target.value)} />
       <button type="button" onClick={() => setSearch(query)}>Go</button>
     </Fragment>
 

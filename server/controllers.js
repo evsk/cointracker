@@ -5,7 +5,6 @@ const queryBlockchain = (url, txHash, res) => {
   axios.get(url)
     .then((response) => {
       const { data } = response;
-      console.log(data);
       Transaction.create({
         txHash,
         time: data.time,
@@ -38,16 +37,29 @@ const queryBlockchain = (url, txHash, res) => {
 
 module.exports.search = (req, res) => {
   const { txHash } = req.params;
-  Transaction.find({ txHash }, (error, result) => {
-    if (error) {
-      console.log(error);
-      res.sendStatus(500);
-    } else if (result.length > 0) {
-      console.log(result);
-      res.send(result);
-    } else {
-      const url = `https://blockchain.info/rawtx/${txHash}`;
-      queryBlockchain(url, txHash, res);
-    }
-  });
+  Transaction
+    .findOne({ txHash })
+    .exec((error, result) => {
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+      } else if (result) {
+        res.send(result);
+      } else {
+        const url = `https://blockchain.info/rawtx/${txHash}`;
+        queryBlockchain(url, txHash, res);
+      }
+    });
+};
+
+module.exports.getResults = (req, res) => {
+  Transaction
+    .find()
+    .exec((error, results) => {
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+      }
+      res.send(results);
+    });
 };

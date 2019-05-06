@@ -11,5 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', express.static('client/dist'));
 
 app.get('/search/:txHash', controllers.search);
+app.get('/results', controllers.getResults);
 
 module.exports = app;
