@@ -1,26 +1,31 @@
 import React, { Fragment } from 'react';
 
 const MainResultDetails = ({ mainResult }) => (
-  <div className="resultsContainer">
-    <div className="mainTransaction">
-      <div>
-        Transaction Id:
+  <div className="results-container">
+    <h4>Transaction Details </h4>
+    <div className="main-transaction">
+      <div className="line-item">
+        <div>
+          Transaction Id:
+        </div>
+        <div>
+          {mainResult.txHash}
+        </div>
       </div>
-      <div>
-        {mainResult.txHash}
-      </div>
-      <div>
-        Block Id:
-      </div>
-      <div>
-        {mainResult.block}
+      <div className="line-item">
+        <div>
+          Block Id:
+        </div>
+        <div>
+          {mainResult.block}
+        </div>
       </div>
     </div>
-    <div className="transactionDetails">
+    <div className="transaction-details">
       {
         mainResult.inputs.map((transaction, idx) => (
           <Fragment>
-            <div className="lineItem">
+            <div className="line-item">
               <div>
                 From Address:
               </div>
@@ -28,7 +33,7 @@ const MainResultDetails = ({ mainResult }) => (
                 {transaction.prev_out.addr}
               </div>
             </div>
-            <div className="lineItem">
+            <div className="line-item">
               <div>
                 To Address:
               </div>
@@ -36,7 +41,7 @@ const MainResultDetails = ({ mainResult }) => (
                 {mainResult.outputs[0].addr}
               </div>
             </div>
-            <div className="lineItem">
+            <div className="line-item">
               <div>
                 Amount Sent: 
               </div>
@@ -44,7 +49,7 @@ const MainResultDetails = ({ mainResult }) => (
                 {`${transaction.prev_out.value / 100000000} bitcoin`}
               </div>
             </div>
-            <div className="lineItem">
+            <div className="line-item">
               <div>
                 Fee: 
               </div>

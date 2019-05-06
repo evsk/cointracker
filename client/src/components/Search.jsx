@@ -17,13 +17,14 @@ const Search = ({ setMainResult }) => {
   }, [search]);
 
   return (
-    <Fragment>
-      <span>
+    <div className="search">
+      <h4>Search Bitcoin Blockchain</h4>
+      <span className="search-input">
         Search: 
       </span>
-      <input type="textarea" value={query} onChange={e => setQuery(e.target.value)} />
+      <input type="text" placeholder="Input Transaction ID" value={query} onChange={e => setQuery(e.target.value)} />
       <button type="button" onClick={() => setSearch(query)}>Go</button>
-    </Fragment>
+    </div>
 
   );
 };

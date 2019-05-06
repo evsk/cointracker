@@ -1,14 +1,45 @@
-.resultsContainer,
-.mainTransaction,
-.transactionDetails {
-  display: flex;
-  flex-direction: column;
-  margin: 5px; 
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+  background: lightgray;
 }
 
-.lineItem {
+#app {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.search {
+  flex-direction: row;
+  margin: 25px;
+}
+
+.results-container,
+.recent-results {
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+}
+
+input[type=text] {
+  width: 400px;
+}
+.search-input {
+  margin-right: 10px;
+}
+
+.transaction {
+  background: #fff;
+  border: 1px solid #999;
+}
+
+.line-item {
   display: flex;
   flex-direction: row;
   margin: 5px;
   border: 1px black;
+}
+
+.line-item > div {
+  margin: 5px;
 }

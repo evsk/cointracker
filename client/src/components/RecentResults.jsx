@@ -1,7 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 const RecentResults = ({ setMainResult, results }) => {
-
   const setNextMainResult = (txHash) => {
     for (let i = 0; i < results.length; i += 1) {
       if (results[i].txHash === txHash) {
@@ -9,22 +8,18 @@ const RecentResults = ({ setMainResult, results }) => {
         return;
       }
     }
-  }
-  
+  };
+
   return (
-    <Fragment>
-      <div>
-        Recent Searches
-      </div>
+    <div className="recent-results">
+      <h4> Recent Searches</h4>
       {results.length > 0 ? (
         <ul>
           {results.map(search => (
-            <li key={search.id}>
+            <button className="transaction" value={search.txHash} onClick={e => setNextMainResult(e.target.value)}>
               {search.txHash}
-              <button type="button" value={search.txHash} onClick={e => setNextMainResult(e.target.value)}>
-                View Details
-              </button>
-            </li>
+            </button>
+        
           ))}
         </ul>
       ) : (
@@ -32,7 +27,7 @@ const RecentResults = ({ setMainResult, results }) => {
           No recent searches
         </div>
       )}
-    </Fragment>
+    </div>
   );
 };
 
