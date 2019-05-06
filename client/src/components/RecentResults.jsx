@@ -10,7 +10,7 @@ const RecentResults = ({ results, setMainResult, fetchResults }) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-      }, 
+      },
       body: JSON.stringify(fullTxName),
     })
       .then(() => fetchResults())
@@ -36,19 +36,19 @@ const RecentResults = ({ results, setMainResult, fetchResults }) => {
         </div>
         <div className="recent-results-body">
           {results.length > 0 &&
-            results.map(search => (
-              <div className="line-item">
-                <button className="transaction" value={search.txHash} onClick={e => setNextMainResult(e.target.value)}>
-                  {search.txHash}
+            results.map(transaction => (
+              <div key={transaction.txHash}className="line-item">
+                <button className="transaction" value={transaction.txHash} onClick={e => setNextMainResult(e.target.value)}>
+                  {transaction.txHash}
                 </button>
-                {search.txName ? (
-                    <button className="transaction" value={search.txHash} onClick={e => setNextMainResult(e.target.value)}>
-                    {search.txName}
+                {transaction.txName ? (
+                    <button className="transaction" value={transaction.txHash} onClick={e => setNextMainResult(e.target.value)}>
+                    {transaction.txName}
                     </button>
                   ) : (
                     <div>
                       <input type="text" placeholder="Add Name" value={txName} onChange={e => setTxName(e.target.value)} />
-                      <button type="button" value={search.txHash} onClick={(e) => setFullTxName([e.target.value, txName])}>Set Name</button>
+                      <button type="button" value={transaction.txHash} onClick={(e) => setFullTxName([e.target.value, txName])}>Set Name</button>
                     </div>
                   )}
               </div>

@@ -35,7 +35,7 @@ const MainResultDetails = ({ mainResult }) => (
     <div className="transaction-details">
       <h5>Inputs</h5>
       {mainResult.inputs.map(transaction => (
-        <div className="line-item">
+        <div key={transaction.sequence} className="line-item">
           <div>
             Address:
           </div>
@@ -52,7 +52,7 @@ const MainResultDetails = ({ mainResult }) => (
       ))}
       <h5>Outputs</h5>
       {mainResult.outputs.map(transaction => (
-        <div className="line-item">
+        <div key={transaction.n} className="line-item">
           <div>
             Address:
           </div>
