@@ -7,7 +7,7 @@ const MainResultDetails = ({ mainResult }) => (
       <h5>Overview</h5>
       {mainResult.txName && (
         <div className="line-item">
-          <div>
+          <div className="overview">
             Transaction Name:
           </div>
           <div>
@@ -16,7 +16,7 @@ const MainResultDetails = ({ mainResult }) => (
         </div>
       )}
       <div className="line-item">
-        <div>
+        <div className="overview">
           Transaction Hash:
         </div>
         <div>
@@ -24,8 +24,8 @@ const MainResultDetails = ({ mainResult }) => (
         </div>
       </div>
       <div className="line-item">
-        <div>
-          Block Id:
+        <div className="overview">
+          Block ID:
         </div>
         <div>
           {mainResult.block}
@@ -36,34 +36,42 @@ const MainResultDetails = ({ mainResult }) => (
       <h5>Inputs</h5>
       {mainResult.inputs.map(transaction => (
         <div key={transaction.sequence} className="line-item">
-          <div>
-            Address:
+          <div className="line-item-details">
+            <div>
+              Address:
+            </div>
+            <div>
+              {transaction.prev_out.addr}
+            </div>
           </div>
-          <div>
-            {transaction.prev_out.addr}
-          </div>
-          <div>
-            Amount Sent:
-          </div>
-          <div>
-            {`${transaction.prev_out.value / 100000000} bitcoin`}
+          <div className="line-item-details">
+            <div>
+              Amount Sent:
+            </div>
+            <div>
+              {`${transaction.prev_out.value / 100000000} bitcoin`}
+            </div>
           </div>
         </div>
       ))}
       <h5>Outputs</h5>
       {mainResult.outputs.map(transaction => (
         <div key={transaction.n} className="line-item">
-          <div>
-            Address:
+          <div className="line-item-details">
+            <div>
+              Address:
+            </div>
+            <div>
+              {transaction.addr}
+            </div>
           </div>
-          <div>
-            {transaction.addr}
-          </div>
-          <div>
-            Amount Sent:
-          </div>
-          <div>
-            {transaction.value ? `${transaction.value / 100000000} bitcoin` : 'No output'}
+          <div className="line-item-details">
+            <div>
+              Amount Sent:
+            </div>
+            <div>
+              {transaction.value ? `${transaction.value / 100000000} bitcoin` : 'No output'}
+            </div>
           </div>
         </div>
       ))}

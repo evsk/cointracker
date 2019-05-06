@@ -31,13 +31,13 @@ const RecentResults = ({ results, setMainResult, fetchResults }) => {
       <h4> Recent Searches</h4>
       <div className="recent-results-list">
         <div className="recent-results-header">
-          <div>Transaction ID</div>
+          <div>Transaction Hash</div>
           <div>Transaction Name</div>
         </div>
         <div className="recent-results-body">
           {results.length > 0 &&
             results.map(transaction => (
-              <div key={transaction.txHash}className="line-item">
+              <div key={transaction.txHash} className="line-item">
                 <button className="transaction" value={transaction.txHash} onClick={e => setNextMainResult(e.target.value)}>
                   {transaction.txHash}
                 </button>
@@ -47,7 +47,7 @@ const RecentResults = ({ results, setMainResult, fetchResults }) => {
                     </button>
                   ) : (
                     <div>
-                      <input type="text" placeholder="Add Name" value={txName} onChange={e => setTxName(e.target.value)} />
+                      <input className="set-name" type="text" placeholder="Add Name" value={txName} onChange={e => setTxName(e.target.value)} />
                       <button type="button" value={transaction.txHash} onClick={(e) => setFullTxName([e.target.value, txName])}>Set Name</button>
                     </div>
                   )}

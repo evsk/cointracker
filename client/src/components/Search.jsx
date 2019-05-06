@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Search = ({ setMainResult }) => {
   const [query, setQuery] = useState(null);
@@ -18,12 +18,12 @@ const Search = ({ setMainResult }) => {
 
   return (
     <div className="search">
-      <h4>Search Bitcoin Blockchain</h4>
-      <span className="search-input">
-        Search: 
+      <h4>Search the Bitcoin Blockchain</h4>
+      <span className="search-field-title">
+        Enter a Transaction Hash:
       </span>
-      <input type="text" placeholder="Input Transaction ID" value={query} onChange={e => setQuery(e.target.value)} />
-      <button type="button" onClick={() => setSearch(query)}>Go</button>
+      <input className="search-input" type="text" value={query} onChange={e => setQuery(e.target.value)} />
+      <button className="search-button" type="button" onClick={() => setSearch(query)}>Go</button>
     </div>
 
   );
