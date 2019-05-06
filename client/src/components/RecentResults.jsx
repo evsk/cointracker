@@ -1,4 +1,3 @@
-/*eslint-disable*/
 import React, {useState, useEffect} from 'react';
 
 const RecentResults = ({ results, setMainResult, fetchResults }) => {
@@ -7,9 +6,9 @@ const RecentResults = ({ results, setMainResult, fetchResults }) => {
   const [fullTxName, setFullTxName] = useState(Array(2).fill(null));
   useEffect(() => {
     fetch('/setName', {
-      method: "PATCH",
+      method: 'PATCH',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(fullTxName),
     })
@@ -28,7 +27,7 @@ const RecentResults = ({ results, setMainResult, fetchResults }) => {
 
   return (
     <div className="recent-results">
-      <h4> Recent Searches</h4>
+      <h4>Recent Searches</h4>
       <div className="recent-results-list">
         <div className="recent-results-header">
           <div>Transaction Hash</div>
@@ -38,19 +37,19 @@ const RecentResults = ({ results, setMainResult, fetchResults }) => {
           {results.length > 0 &&
             results.map(transaction => (
               <div key={transaction.txHash} className="line-item">
-                <button className="transaction" value={transaction.txHash} onClick={e => setNextMainResult(e.target.value)}>
+                <button type="button" className="transaction" value={transaction.txHash} onClick={e => setNextMainResult(e.target.value)}>
                   {transaction.txHash}
                 </button>
                 {transaction.txName ? (
-                    <button className="transaction" value={transaction.txHash} onClick={e => setNextMainResult(e.target.value)}>
+                  <button type="button" className="transaction" value={transaction.txHash} onClick={e => setNextMainResult(e.target.value)}>
                     {transaction.txName}
-                    </button>
-                  ) : (
-                    <div>
-                      <input className="set-name" type="text" placeholder="Add Name" value={txName} onChange={e => setTxName(e.target.value)} />
-                      <button type="button" value={transaction.txHash} onClick={(e) => setFullTxName([e.target.value, txName])}>Set Name</button>
-                    </div>
-                  )}
+                  </button>
+                ) : (
+                  <div>
+                    <input className="set-name" type="text" placeholder="Add Name" value={txName} onChange={e => setTxName(e.target.value)} />
+                    <button type="button" value={transaction.txHash} onClick={e => setFullTxName([e.target.value, txName])}>Set Name</button>
+                  </div>
+                )}
               </div>
             ))}
         </div>
