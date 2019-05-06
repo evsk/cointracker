@@ -12,5 +12,6 @@ app.use('/', express.static('client/dist'));
 
 app.get('/search/:txHash', controllers.search);
 app.get('/results', controllers.getResults);
+app.patch('/setName', controllers.setName);
 
 module.exports = app;

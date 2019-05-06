@@ -63,3 +63,19 @@ module.exports.getResults = (req, res) => {
       res.send(results);
     });
 };
+
+module.exports.setName = (req, res) => {
+  const { body } = req;
+  Transaction
+    .findOneAndUpdate(
+      { txHash: body[0] },
+      { txName: body[1] },
+    )
+    .exec((error, result) => {
+      if (error) {
+        console.log(error);
+        res.sendStatus(500);
+      }
+      res.end();
+    });
+};

@@ -7,17 +7,21 @@ const App = () => {
   const [mainResult, setMainResult] = useState(null);
   const [results, setResults] = useState([]);
 
-  useEffect(() => {
+  const fetchResults = () => {
     fetch('/results')
       .then(response => response.json())
       .then(response => setResults(response));
+  };
+
+  useEffect(() => {
+    fetchResults();
   }, []);
 
   return (
     <div>
       <Search setMainResult={setMainResult} />
       {mainResult && <MainResultDetails mainResult={mainResult} /> }
-      {results.length > 0 && <RecentResults results={results} setMainResult={setMainResult} />}
+      {results.length > 0 && <RecentResults results={results} setMainResult={setMainResult} fetchResults={fetchResults} />}
     </div>
   );
 };
