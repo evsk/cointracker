@@ -54,7 +54,7 @@ const MainResultDetails = ({ mainResult }) => (
                 Fee: 
               </div>
               <div>
-                {`${transaction.prev_out.value - mainResult.outputs[0].value}  bitcoin`}
+                {`${(transaction.prev_out.value - mainResult.outputs[0].value) / 100000000}  bitcoin`}
               </div>
             </div>
           </Fragment>
