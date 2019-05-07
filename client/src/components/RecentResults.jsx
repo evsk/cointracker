@@ -46,8 +46,8 @@ const RecentResults = ({ results, setMainResult, fetchResults }) => {
                   </button>
                 ) : (
                   <div>
-                    <input className="set-name" type="text" placeholder="Add Name" value={txName} onChange={e => setTxName(e.target.value)} />
-                    <button type="button" value={transaction.txHash} onClick={e => setFullTxName([e.target.value, txName])}>Set Name</button>
+                    <input className="set-name" type="text" onChange={e => setTxName(e.target.value)} />
+                    <button type="button" value={transaction.txHash} onClick={e => setFullTxName([e.target.value, txName])}>Name Transaction</button>
                   </div>
                 )}
               </div>
