@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 const Search = ({ setMainResult }) => {
   const [query, setQuery] = useState(null);
-
   const [search, setSearch] = useState(null);
+
   useEffect(() => {
     if (search) {
       fetch(`/search/${search}`)
@@ -18,7 +18,7 @@ const Search = ({ setMainResult }) => {
 
   return (
     <div className="search">
-      <h4>Search the Bitcoin Blockchain</h4>
+      <h4>Search Bitcoin Blockchain</h4>
       <span className="search-field-title">
         Enter a Transaction Hash:
       </span>

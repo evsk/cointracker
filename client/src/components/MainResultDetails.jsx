@@ -67,7 +67,7 @@ const MainResultDetails = ({ mainResult }) => (
           </div>
           <div className="line-item-details">
             <div>
-              Amount Sent:
+              Amount Received:
             </div>
             <div>
               {transaction.value ? `${transaction.value / 100000000} bitcoin` : 'No output'}
