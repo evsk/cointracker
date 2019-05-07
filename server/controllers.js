@@ -17,15 +17,15 @@ const queryBlockchain = (url, txHash, res) => {
           console.log(error);
           res.sendStatus(500);
         }
-        Transaction.findOne({
-          txHash: data.hash,
-        }, (error, result) => {
-          if (error) {
-            console.log(error);
-            res.sendStatus(500);
-          }
-          res.send(result);
-        });
+        Transaction
+          .findOne({ txHash: data.hash })
+          .exec((error, result) => {
+            if (error) {
+              console.log(error);
+              res.sendStatus(500);
+            }
+            res.send(result);
+          });
       });
     })
     .catch((error) => {
