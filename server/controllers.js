@@ -55,6 +55,7 @@ module.exports.search = (req, res) => {
 module.exports.getResults = (req, res) => {
   Transaction
     .find()
+    .sort({ _id: -1 })
     .exec((error, results) => {
       if (error) {
         console.log(error);
