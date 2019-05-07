@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Search = ({ setMainResult }) => {
+const Search = ({ setMainResult, fetchResults }) => {
   const [query, setQuery] = useState(null);
   const [search, setSearch] = useState(null);
 
@@ -9,6 +9,7 @@ const Search = ({ setMainResult }) => {
       fetch(`/search/${search}`)
         .then(response => response.json())
         .then(response => setMainResult(response))
+        .then(() => fetchResults())
         .catch((err) => {
           console.log(err);
           alert('Invaild Transaction ID');

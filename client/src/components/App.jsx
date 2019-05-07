@@ -19,8 +19,8 @@ const App = () => {
 
   return (
     <div>
-      <Search setMainResult={setMainResult} />
-      {mainResult && <MainResultDetails mainResult={mainResult} /> }
+      <Search setMainResult={setMainResult} fetchResults={fetchResults} />
+      {mainResult && <MainResultDetails mainResult={mainResult} />}
       <RecentResults results={results} setMainResult={setMainResult} fetchResults={fetchResults} />
     </div>
   );
