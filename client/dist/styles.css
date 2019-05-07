@@ -68,7 +68,7 @@ h5 {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  width: 400px;
+  min-width: 400px;
   margin-top: 2px;
   margin-bottom: 2px;
 }
