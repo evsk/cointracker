@@ -1,10 +1,11 @@
 # CoinTracker
 
-Look up bitcoin transactions and persist search results locally
+- Look up bitcoin transactions and persist search results locally
+- Built in a two-day sprint, comments/feedback welcome!
 
 ## Installing Dependencies
 
-- `npm install` from within the root directory:
+- `npm install` from within the root directory
 
 ## Starting App
 - `npm run react-dev` to generate the webpack bundle
