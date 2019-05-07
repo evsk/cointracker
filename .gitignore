@@ -6,5 +6,5 @@ node_modules/
 ## Mac files ##
 .DS_Store
 
-## compiled files ##
+## compiled ##
 bundle.js
