@@ -10,7 +10,10 @@ const App = () => {
   const fetchResults = () => {
     fetch('/results')
       .then(response => response.json())
-      .then(response => setResults(response));
+      .then(response => setResults(response))
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
