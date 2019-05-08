@@ -1,7 +1,6 @@
 # CoinTracker
 
-- Look up bitcoin transactions and persist search results locally
-- Built in a two-day sprint, comments/feedback welcome!
+A bitcoin blockchain transaction search tool
 
 ## Installing Dependencies
 
@@ -17,4 +16,8 @@
   - Transaction Block
   - Input and Output Addresses
   - Transacted Amounts
-- Look up past search results by transaction hash and user defined name
+- Look up past search results by transaction hash
+- Tag search results with easy to remember names for faster future look up
+- Notes:
+  - App uses the blockchain.com [API](https://www.blockchain.com/api) to access bitcoin blockchain data
+  - A [Mongo database](https://www.mongodb.com/) is necessary to persist search results locally
